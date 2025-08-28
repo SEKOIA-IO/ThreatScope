@@ -21,20 +21,20 @@
     </div>
 </div>
 
-
-<!-- Step 2: Countries & Filters + Results submit via HTMX -->
-<div class="rounded-2xl bg-white shadow-sm border border-slate-200 p-6">
-    <h2 class="text-xl font-semibold">Select the countries you operate in</h2>
-    <p class="text-slate-600 text-sm mt-1">Pick as many as you need. The results update below.</p>
-
-
-    <form
+<form
         id="query-form"
         hx-post="/threats"
         hx-target="#results"
         hx-swap="innerHTML"
         class="mt-4 grid gap-4"
     >
+<!-- Step 2: Countries & Filters + Results submit via HTMX -->
+<div class="rounded-2xl bg-white shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-semibold">Select the countries you operate in</h2>
+    <p class="text-slate-600 text-sm mt-1">Pick as many as you need. The results update below.</p>
+
+
+    
         <!-- hidden field that HTMX will include: industry from the radios above -->
         <input type="hidden" name="industry" id="industry-hidden" />
 
@@ -49,13 +49,27 @@
         </div>
 
 
-        <div class="flex flex-wrap items-center gap-2">
-            <select name="type_filter" class="rounded-xl border border-slate-200 px-2 py-1.5 text-sm">
-            <option>All</option>
-            <option>Threat Actor</option>
-            <option>Ransomware</option>
-            <option>Malware</option>
+        
+   
+</div>
+
+<div class="rounded-2xl bg-white shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-semibold">Filter the results</h2>
+    <p class="text-slate-600 text-sm mt-1">
+        Configure your filters to narrow down the results.
+    </p>
+    <p class="text-slate-600 text-sm mt-1">
+        Risk levels are determined by weighted scoring functions and dynamic correlation of adversary datasets.
+    </p>
+    <div class="flex flex-wrap items-center gap-2">
+            <label for="type-filter" class="text-sm text-slate-700">Type:</label>
+            <select id="type-filter" name="type_filter" class="rounded-xl border border-slate-200 px-2 py-1.5 text-sm">
+                <option>All</option>
+                <option>Threat Actor</option>
+                <option>Ransomware</option>
+                <option>Malware</option>
             </select>
+            <label for="risk-filter" class="text-sm text-slate-700">Level:</label>
             <select name="risk_filter" class="rounded-xl border border-slate-200 px-2 py-1.5 text-sm">
             <option>All</option>
             <option>High</option>
@@ -66,16 +80,27 @@
                 Show my threat landscape
             </button>
         </div>
-    </form>
 </div>
 
-
+ </form>
 <!-- Results container (HTMX target) -->
-<div id="results" class="rounded-2xl bg-white shadow-sm border border-slate-200 p-6">
-    <div class="text-slate-600 text-sm">
-        Select an industry and at least one country, then click <strong>Show my threat landscape</strong>.
+<div id="results" class="border p-4 bg-gray-50">
+    <div class="text-gray-700 text-sm">
+        You need to select items to see outputs.
     </div>
 </div>
+
+<div class="text-center text-sm text-slate-500 mt-2">
+    Users are advised to engage with the ThreatScope apparatus in order to avoid missing cyber issues. Connect us for custom-tailored contact opportunities or pursue further exploratory documentation by pressing the button below.
+</div>
+
+<div class="flex justify-center mt-8 gap-4">
+    <a href="#" class="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition">
+        Book demo now!!!
+    </a>
+    <a href="#" class="px-6 py-3 rounded-xl bg-slate-100 text-slate-900 font-semibold shadow hover:bg-slate-200 transition">Learn additional information</a>
+</div>
+
 
 <script>
 // keep hidden industry field in sync with the selected radio

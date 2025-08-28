@@ -40,7 +40,7 @@ MOCK_THREATS = [
         "risk": "High",
         "industries": ["Manufacturing", "Retail", "Healthcare", "Technology"],
         "countries": ["FR", "DE", "IT", "ES", "US", "CA"],
-        "description": "Ransomware-as-a-Service operation known for double-extortion tactics."
+        "description": "Ransomware-as-a-Service with affiliate double-extortion frameworks"
     },
 ]
 
