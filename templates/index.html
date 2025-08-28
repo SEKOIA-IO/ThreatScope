@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}ThreatScope — Find Your Threats{% endblock %}
+{% block content %}
+
+<div class="grid gap-6">
+    <!-- Step 1: Industry -->
+    <div class="rounded-2xl bg-white shadow-sm border border-slate-200 p-6">
+        <h2 class="text-xl font-semibold">
+            Choose your industry
+        </h2>
+        <p class="text-slate-600 text-sm mt-1">
+            This helps us tailor the threat landscape to your sector.
+        </p>
+        <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {% for industry in industries %}
+            <label class="rounded-2xl border border-slate-200 hover:border-slate-300 bg-white px-3 py-3 text-sm cursor-pointer flex items-center gap-2">
+            <input type="radio" name="industry" value="{{ industry }}" class="peer" />
+            <span>{{ industry }}</span>
+            </label>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- Step 2: Countries & Filters + Results submit via HTMX -->
+<div class="rounded-2xl bg-white shadow-sm border border-slate-200 p-6">
+    <h2 class="text-xl font-semibold">Select the countries you operate in</h2>
+    <p class="text-slate-600 text-sm mt-1">Pick as many as you need. The results update below.</p>
+
+
+    <form
+        id="query-form"
+        hx-post="/threats"
+        hx-target="#results"
+        hx-swap="innerHTML"
+        class="mt-4 grid gap-4"
+    >
+        <!-- hidden field that HTMX will include: industry from the radios above -->
+        <input type="hidden" name="industry" id="industry-hidden" />
+
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {% for c in countries %}
+            <label class="rounded-2xl border border-slate-200 hover:border-slate-300 bg-white px-3 py-3 text-sm cursor-pointer flex items-center gap-2">
+            <input type="checkbox" name="countries" value="{{ c.code }}" class="mr-2" />
+            <span>{{ c.name }}</span>
+            </label>
+            {% endfor %}
+        </div>
+
+
+        <div class="flex flex-wrap items-center gap-2">
+            <select name="type_filter" class="rounded-xl border border-slate-200 px-2 py-1.5 text-sm">
+            <option>All</option>
+            <option>Threat Actor</option>
+            <option>Ransomware</option>
+            <option>Malware</option>
+            </select>
+            <select name="risk_filter" class="rounded-xl border border-slate-200 px-2 py-1.5 text-sm">
+            <option>All</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+            </select>
+            <button class="ml-auto px-4 py-2 rounded-xl text-sm font-medium bg-slate-900 text-white">
+                Show my threat landscape
+            </button>
+        </div>
+    </form>
+</div>
+
+
+<!-- Results container (HTMX target) -->
+<div id="results" class="rounded-2xl bg-white shadow-sm border border-slate-200 p-6">
+    <div class="text-slate-600 text-sm">
+        Select an industry and at least one country, then click <strong>Show my threat landscape</strong>.
+    </div>
+</div>
+
+<script>
+// keep hidden industry field in sync with the selected radio
+document.addEventListener('change', (e) => {
+if (e.target && e.target.name === 'industry') {
+const hidden = document.getElementById('industry-hidden');
+hidden.value = e.target.value;
+}
+});
+</script>
+
+{% endblock %}

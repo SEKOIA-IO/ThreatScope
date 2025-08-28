@@ -1,0 +1,26 @@
+site_name: ThreatScope
+site_description: Explore your cyber threat landscape by industry and countries.
+site_url: https://example.com
+repo_url: https://github.com/gbossert/threatscope
+repo_name: gbossert/threatscope
+nav:
+- Home: index.md
+- Usage: usage.md
+- API: api.md
+- Development: dev.md
+theme:
+  name: material
+  features:
+  - navigation.sections
+  - navigation.tracking
+  - content.code.copy
+  - content.action.edit
+  - toc.integrate
+markdown_extensions:
+- admonition
+- attr_list
+- codehilite
+extra:
+  social:
+  - icon: fontawesome/brands/github
+  link: https://github.com/gbossert/threatscope

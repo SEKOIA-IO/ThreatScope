@@ -1,0 +1,14 @@
+[project]
+name = "threatscope"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.116.1",
+    "jinja2>=3.1.6",
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.6.18",
+    "python-multipart>=0.0.20",
+    "uvicorn>=0.35.0",
+]
