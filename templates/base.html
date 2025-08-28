@@ -1,38 +1,35 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{% block title %}ThreatScope (Toy){% endblock %}</title>
-<!-- Tailwind (CDN for prototype) -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- HTMX -->
-<script src="https://unpkg.com/htmx.org@1.9.12"></script>
-</head>
-<body class="min-h-screen bg-slate-50 text-slate-900">
-<header class="sticky top-0 z-10 bg-white/80 backdrop-blur border-b border-slate-200">
-<div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="inline-flex w-5 h-5 rounded bg-slate-900"></span>
-<span class="font-semibold">ThreatScope</span>
-</div>
-<nav class="hidden md:flex items-center gap-6 text-sm text-slate-600">
-<a href="#" class="hover:text-slate-900">Docs</a>
-<a href="#" class="hover:text-slate-900">API</a>
-<a href="#" class="hover:text-slate-900">About</a>
-</nav>
-</div>
-</header>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{% block title %}ThreatScope (Toy){% endblock %}</title>
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- HTMX -->
+        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    </head>
 
+    <body class="min-h-screen bg-slate-50 text-slate-900">
+        <header class="sticky top-0 z-10 bg-white/80 backdrop-blur border-b border-slate-200">
+            <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="inline-flex w-5 h-5 rounded bg-slate-900"></span>
+                    <span class="font-semibold">ThreatScope</span>
+                </div>
+                <nav class="hidden md:flex items-center gap-6 text-sm text-slate-600">
+                    <a href="https://gbossert.github.io/ThreatScope/" class="hover:text-slate-900">Docs</a>
+                </nav>
+            </div>
+        </header>
 
-<main class="max-w-6xl mx-auto px-4 py-6">
-{% block content %}{% endblock %}
-</main>
+        <main class="max-w-6xl mx-auto px-4 py-6">
+        {% block content %}{% endblock %}
+        </main>
 
-
-<footer class="max-w-6xl mx-auto px-4 pb-10 text-center text-xs text-slate-500">
-Prototype wireframe · No real data · © <span id="y"></span>
-</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
-</body>
+        <footer class="max-w-6xl mx-auto px-4 pb-10 text-center text-xs text-slate-500">
+            Prototype wireframe · No real data · © <span id="y"></span>
+        </footer>
+        <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+    </body>
 </html>
