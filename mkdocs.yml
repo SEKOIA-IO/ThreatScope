@@ -17,9 +17,11 @@ theme:
   - content.action.edit
   - toc.integrate
 markdown_extensions:
-- admonition
-- attr_list
-- codehilite
+  - admonition
+  - attr_list
+  - codehilite
+  - toc:
+      permalink: true
 extra:
   social:
   - icon: fontawesome/brands/github
