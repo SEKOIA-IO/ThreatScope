@@ -23,7 +23,7 @@ COUNTRIES: List[Dict[str, str]] = [
     {"code": "JP", "name": "Japan"},
 ]
 
-MOCK_THREATS = [
+THREATS = [
     {
         "id": "apt29",
         "name": "APT29",
@@ -43,6 +43,7 @@ MOCK_THREATS = [
         "description": "Ransomware-as-a-Service with affiliate double-extortion frameworks"
     },
 ]
+THREATS_BY_ID = {threat["id"]: threat for threat in THREATS}
 
 RISK_RANK = {"High": 3, "Medium": 2, "Low": 1}
 
@@ -54,12 +55,9 @@ def score_threat(threat, industry: str, countries: List[str]) -> int:
     score += overlap
     return score
 
-
-
-
 def query_threats(industry: str, countries: List[str], type_filter: str = "All", risk_filter: str = "All"):
     scored = []
-    for t in MOCK_THREATS:
+    for t in THREATS:
         s = score_threat(t, industry, countries)
         if s <= 0:
             continue
