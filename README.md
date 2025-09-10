@@ -10,7 +10,7 @@ If you're a candidate: welcome 👋 and thank you for your time!
 
 👉 Live app: [https://threatscope-i0tj.onrender.com](https://threatscope-i0tj.onrender.com)  
 👉 Live documentation: [https://sekoia-io.github.io/ThreatScope/](https://sekoia-io.github.io/ThreatScope/)  
-👉 Live swagger docs: [https://threatscope-i0tj.onrender.com/docs](https://threatscope-i0tj.onrender.com/api)  
+👉 Live swagger docs: [https://threatscope-i0tj.onrender.com/api](https://threatscope-i0tj.onrender.com/api)  
 
 Test account:  
 * username: alice
